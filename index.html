@@ -1,0 +1,74 @@
+<!--Н_ОW_Г_620543_5	Атерекова Марина - 1002.Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритмической задачи</title>
+</head>
+<body>
+    <p>1002. Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль. Отправить на сервер.</p>
+    <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+        <ul>
+            <li>Для поисковика:<input name="q" value="search"></li>
+            <li>Формулировка задачи <input name="formulation" value="Дано вещественное число. Определить, какое это число: положительное, отрицательное, ноль."></li>
+            <li>Число: <input id="element" name="element" type="number" value="10"></li>
+            <li>Результат решения: <input name="result" value="не определен"></li>
+            <p><input id="compare" type="button" value="Проверить">
+            <input id="send" type="button" value="Отправить"></p>
+        </ul>
+    </form>
+    <p id="result">Результаты вычислений: </p> 
+
+<script>
+
+    function compare() {
+	console.log('countToCompare');
+	let countToCompare = parseFloat(elementToCompare.value) ;
+	console.log(countToCompare);
+	
+        if (countToCompare > 0) {
+        	result = 'Положительное'
+        	document.getElementById('result').innerText = messageText + result;
+        	document.getElementsByName('result')[0].value = result;
+        	check = true;
+        } else if (countToCompare < 0) {
+                result = 'Отрицательное'
+        	document.getElementById('result').innerText = messageText + result;
+        	document.getElementsByName('result')[0].value = result;
+        	check = true;
+        } else {
+                result = 'Ноль'
+        	document.getElementById('result').innerText = messageText + result;
+        	document.getElementsByName('result')[0].value = result;
+        	check = true;
+        }
+}
+
+function send() {
+    if (check) {
+        let textCondition = document.getElementsByTagName('p')[0].innerText
+        document.getElementsByName('formulation')[0].value = textCondition;
+        document.getElementsByName('result')[0].value = result;
+        document.getElementById('UserEnter').submit();
+    } else {
+        alert('Введите корректное число.')
+    }
+}
+
+let messageText = document.getElementById('result').innerText
+console.log(messageText)
+let result;
+let check = false;
+
+const elementToCompare = document.getElementById('element');
+elementToCompare.addEventListener('input', compare);
+
+const elementCompare = document.getElementById('compare');
+elementCompare.addEventListener('click', compare);
+
+const elementSend = document.getElementById('send');
+elementSend.addEventListener('click', send)
+</script>
+</body>
+</html>
